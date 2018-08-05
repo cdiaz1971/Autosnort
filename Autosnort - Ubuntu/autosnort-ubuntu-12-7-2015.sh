@@ -582,32 +582,32 @@ cp pulledpork.tmp pulledpork.conf
 
 cd /usr/src/pulledpork
 	
-print_status "Attempting to download rules for $snortver.."
-perl pulledpork.pl -c /usr/src/pulledpork/etc/pulledpork.conf -vv &>> $logfile
-if [ $? == 0 ]; then
-	pp_postprocessing
-else
-	print_error "Rule download for $snortver has failed. Trying text-only rule download for $choice2.."
-	perl pulledpork.pl -S $choice2 -c /usr/src/pulledpork/etc/pulledpork.conf -T -vv &>> $logfile
-	if [ $? == 0 ]; then
-		pp_postprocessing
-	else
-		print_error "Rule download for $choice2 has failed. Trying text-only rule download $choice3.."
-		perl pulledpork.pl -S $choice3 -c /usr/src/pulledpork/etc/pulledpork.conf -T -vv &>> $logfile
-		if [ $? == 0 ]; then
-			pp_postprocessing
-		else
-			print_error "Rule download for $choice3 has failed. Trying text-only rule download for $choice4 (Final shot!)"
-			perl pulledpork.pl -S $choice4 -c /usr/src/pulledpork/etc/pulledpork.conf -T -vv &>> $logfile
-			if [ $? == 0 ]; then
-				pp_postprocessing
-			else
-				print_error "Rule download for $choice4 has failed; Either you've downloaded rules for another sensor from the same public IP address in the last 15 minutes, your Oink Code is invalid, or you have another issue. Check $logfile, Troubleshoot your connectivity issues to snort.org, and ensure you wait a minimum of 15 minutes before trying again."
-				exit 1
-			fi
-		fi
-	fi
-fi
+#print_status "Attempting to download rules for $snortver.."
+#perl pulledpork.pl -c /usr/src/pulledpork/etc/pulledpork.conf -vv &>> $logfile
+#if [ $? == 0 ]; then
+#	pp_postprocessing
+#else
+#	print_error "Rule download for $snortver has failed. Trying text-only rule download for $choice2.."
+#	perl pulledpork.pl -S $choice2 -c /usr/src/pulledpork/etc/pulledpork.conf -T -vv &>> $logfile
+#	if [ $? == 0 ]; then
+#		pp_postprocessing
+#	else
+#		print_error "Rule download for $choice2 has failed. Trying text-only rule download $choice3.."
+#		perl pulledpork.pl -S $choice3 -c /usr/src/pulledpork/etc/pulledpork.conf -T -vv &>> $logfile
+#		if [ $? == 0 ]; then
+#			pp_postprocessing
+#		else
+#			print_error "Rule download for $choice3 has failed. Trying text-only rule download for $choice4 (Final shot!)"
+#			perl pulledpork.pl -S $choice4 -c /usr/src/pulledpork/etc/pulledpork.conf -T -vv &>> $logfile
+#			if [ $? == 0 ]; then
+#				pp_postprocessing
+#			else
+#				print_error "Rule download for $choice4 has failed; Either you've downloaded rules for another sensor from the same public IP address in the last 15 minutes, your Oink Code is invalid, or you have another issue. Check $logfile, Troubleshoot your connectivity issues to snort.org, and ensure you wait a minimum of 15 minutes before trying again."
+#				exit 1
+#			fi
+#		fi
+#	fi
+#fi
 
 ########################################
 
