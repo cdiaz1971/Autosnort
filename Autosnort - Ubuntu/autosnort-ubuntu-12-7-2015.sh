@@ -374,7 +374,7 @@ error_check 'Download of snort.org index page'
 wget https://www.snort.org/configurations -O /tmp/snort_conf &> $logfile
 error_check 'Download of snort.conf examples page'
 
-snorttar=`grep -o snort-[0-9]\.[0-9]\.[0-9]\.[0-9].tar.gz /tmp/snort | head -1`
+snorttar=`grep -o snort-[0-9]\.[0-9]\.[0-9][0-9]\.[0-9].tar.gz /tmp/snort | head -1`
 daqtar=`egrep -o "daq-.*.tar.gz" /tmp/snort | head -1 | cut -d"<" -f1`
 snortver=`echo $snorttar | sed 's/.tar.gz//g'`
 daqver=`echo $daqtar | sed 's/.tar.gz//g'`
